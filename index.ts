@@ -37,6 +37,7 @@ const optionsDefinitions = [
     { name: 'tx', type: Boolean },
     { name: 'fundraising', type: Boolean },
     { name: 'amount', type: String },
+    { name: 'threshold', type: String },
 ]
 
 const commandLineArgs = require('command-line-args')
@@ -148,19 +149,19 @@ const options = commandLineArgs(optionsDefinitions)
             ethers,
             signerOrProvider: wallets[0],
         })
-
-        // NOTE Deploy new safe
         const safeFactory = await SafeFactory.create({ ethAdapter })
-
         const protocolKitOwner1 = await safeFactory.deploySafe({
             safeAccountConfig: {
                 owners: walletAddresses,
-                threshold: 2,
+                threshold: options.threshold || 3,
             },
         })
         const safeAddress = await protocolKitOwner1.getAddress()
-        console.log('Your Safe has been deployed:')
-        console.log(`https://sepolia.etherscan.io/address/${safeAddress}`)
+        etherscanLog({
+            label: 'Your Safe has been deployed',
+            route: 'address',
+            hash: safeAddress,
+        })
         console.log(`https://app.safe.global/sep:${safeAddress}`)
     }
 })()
