@@ -1,0 +1,32 @@
+{
+  "name": "safe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@safe-global/auth-kit": "^2.0.1",
+    "@web3auth/safeauth-embed": "^0.0.0",
+    "tslib": "^2.6.2",
+    "viem": "^2.7.12"
+  },
+  "devDependencies": {
+    "@safe-global/api-kit": "^2.1.0",
+    "@safe-global/protocol-kit": "^3.0.0",
+    "@safe-global/safe-core-sdk-types": "^4.0.0",
+    "@tsconfig/node20": "^20.1.2",
+    "@types/node": "20",
+    "@zerodev/presets": "^5.1.4",
+    "@zerodev/sdk": "^5.1.6",
+    "command-line-args": "^5.2.1",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.11.1",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2"
+  }
+}
